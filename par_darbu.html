@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="lv" class="scroll-smooth h-full">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Par darbu – Studenta diena LU</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              primary: {
+                light: '#6366f1',
+                DEFAULT: '#4338ca',
+                dark: "#312e81",
+              },
+              accent: {
+                DEFAULT: '#f29231'
+              }
+            }
+          }
+        }
+      };
+    </script>
+  </head>
+  <body class="bg-white dark:bg-gray-900 text-black dark:text-white font-sans flex flex-col min-h-screen">
+    <!-- Navbar -->
+    <nav class="fixed top-0 left-0 w-full z-50 bg-white/30 dark:bg-gray-900/30 backdrop-blur-lg shadow-sm">
+      <div class="max-w-6xl mx-auto px-4 py-3 flex justify-between items-center">
+        <a href="index.html" class="text-primary dark:text-primary-light font-semibold hover:underline">← Atpakaļ</a>
+        <button id="themeToggle" class="text-primary dark:text-primary-light hover:text-indigo-700 dark:hover:text-indigo-300 transition">
+          🌙
+        </button>
+      </div>
+    </nav>
+
+    <!-- Galvenais saturs -->
+    <main class="pt-32 max-w-3xl mx-auto px-4 flex-1">
+      <h1 class="text-4xl font-bold mb-6 text-primary dark:text-primary-light">Par darbu</h1>
+      <p class="mb-4 text-lg leading-relaxed">
+        Šī tīmekļa lapa ir izstrādāta kā daļa no mācību projekta, kurā tiek atainota LU studenta ikdiena digitālajā vidē.
+        Mērķis bija parādīt, kā studenti izmanto dažādas tehnoloģijas un rīkus studiju laikā – no rīta līdz vakaram.
+      </p>
+      <p class="mb-4 text-lg leading-relaxed">
+        Projekts izveidots izmantojot <strong>HTML</strong>, <strong>Tailwind CSS</strong> un <strong>JavaScript</strong> ar mūsdienīgām tīmekļa izstrādes metodēm, ieskaitot tumšo režīmu un animācijas.
+      </p>
+      <p class="mb-4 text-lg leading-relaxed">
+        Darbā tiek izmantots arī <em>Intersection Observer</em>, lai nodrošinātu gludu parādīšanos skata zonā, uzlabojot lietotāja pieredzi.
+      </p>
+      <p class="text-lg font-semibold mt-8">Autors: Sofja Golubeva</p>
+      <p class="text-sm text-gray-500 pb-4 dark:text-gray-400">© 2025</p>
+    </main>
+
+    <!-- Fūters apakšā -->
+    <footer class="bg-gray-100 dark:bg-gray-800 text-center text-sm text-gray-600 dark:text-gray-400 py-6">
+      <p>© 2025 Studenta diena LU. Sofja Golubeva.</p>
+    </footer>
+
+    <!-- Theme toggle skripts -->
+    <script>
+      const themeToggle = document.getElementById("themeToggle");
+      const htmlEl = document.documentElement;
+      const currentTheme = localStorage.getItem("theme");
+
+      if (currentTheme === "dark") {
+        htmlEl.classList.add("dark");
+        themeToggle.textContent = "☀️";
+      }
+
+      themeToggle.addEventListener("click", () => {
+        htmlEl.classList.toggle("dark");
+        if (htmlEl.classList.contains("dark")) {
+          localStorage.setItem("theme", "dark");
+          themeToggle.textContent = "☀️";
+        } else {
+          localStorage.setItem("theme", "light");
+          themeToggle.textContent = "🌙";
+        }
+      });
+    </script>
+  </body>
+</html>
